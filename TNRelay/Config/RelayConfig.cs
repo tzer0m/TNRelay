@@ -9,5 +9,10 @@
         /// Endpoint to POST new alerts to
         /// </summary>
         public string Endpoint { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Api key for endpoint
+        /// </summary>
+        public string ApiKey { get; set; } = string.Empty;
     }
 }

@@ -8,7 +8,7 @@
         /// <summary>
         /// List of TrueNAS sources to poll
         /// </summary>
-        public List<TrueNasSource> Sources { get; set; } = new();
+        public List<TrueNasSource> Sources { get; set; } = [];
 
         /// <summary>
         /// Minimum severity level to forward (inclusive)
