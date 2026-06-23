@@ -21,7 +21,7 @@ namespace TNRelay
         public RelayClient(RelayConfig config)
         {
             HttpClient = new HttpClient { BaseAddress = new Uri(config.Endpoint) };
-            HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", config.ApiKey);
+            HttpClient.DefaultRequestHeaders.Add("X-Api-Key", config.ApiKey);
         }
 
         /// <summary>
