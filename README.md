@@ -2,9 +2,9 @@
 
 [![Deploy](https://github.com/tzer0m/TNRelay/actions/workflows/deploy.yml/badge.svg)](https://github.com/tzer0m/TNRelay/actions/workflows/deploy.yml)
 
-A small console app that forwards [TrueNAS](https://www.truenas.com/) alerts to phone as push notifications.
+A small console app that forwards [TrueNAS](https://www.truenas.com/) alerts as push notifications, since TrueNAS SCALE has no first-class way to relay alerts to a custom notification service.
 
-## Purpose
+## What it does
 
 On each run, TNRelay:
 
@@ -16,7 +16,7 @@ On each run, TNRelay:
 
 It exits with the number of source errors encountered, so it's straightforward to alert on failures when run on a schedule.
 
-## Tech Stack
+## Tech stack
 
 - .NET 10 console app
 - Raw `ClientWebSocket` + JSON-RPC for the TrueNAS middleware API (no official .NET client exists)
@@ -45,8 +45,8 @@ Configuration lives in `appsettings.json` (see `appsettingsGit.json` for the sha
 }
 ```
 
-Each entry in `TrueNas:Sources` is one TrueNAS instance to poll (in my case, Robert and Davos), identified by a `Name` that's also used as the dedupe key prefix.
+Each entry in `TrueNas:Sources` is one TrueNAS instance to poll, identified by a `Name` that's also used as the dedupe key prefix.
 
 ## Deployment
 
-Deployed via GitHub Actions on push to `master`, using a self-hosted runner on Tyrion, which publishes the build to `/home/tzer0m/Services/TNRelay`. TNRelay runs to completion and exits rather than staying resident, so it's intended to be invoked periodically (e.g. via cron or a systemd timer) rather than run as a long-lived service.
+Deployed via GitHub Actions on push to `master`, using a self-hosted runner, which publishes the build. TNRelay runs to completion and exits rather than staying resident, so it's intended to be invoked periodically (e.g. via cron or a systemd timer) rather than run as a long-lived service.
