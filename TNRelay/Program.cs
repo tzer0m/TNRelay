@@ -50,7 +50,7 @@ foreach (TrueNasSource source in config.TrueNas.Sources)
             if (await alertStore.HasBeenForwardedAsync(source.Name, alert.Uuid))
                 continue;
 
-            string title = $"TrueNAS Alert [{source.Name}] - {alert.Level}";
+            string title = $"TNRelay: {source.Name} {alertLevel}";
             string body = alert.Formatted ?? alert.Text ?? string.Empty;
             await tingClient.SendAsync(title, body);
 
