@@ -1,6 +1,6 @@
 # TNRelay
 
-[![Deploy](https://github.com/tzer0m/TNRelay/actions/workflows/deploy.yml/badge.svg)](https://github.com/tzer0m/TNRelay/actions/workflows/deploy.yml)
+[![Deploy](https://github.com/tzer0m/TNRelay/actions/workflows/deploy.yml/badge.svg)](https://github.com/tzer0m/TNRelay/actions/workflows/deploy.yml) [![Dependabot](https://github.com/tzer0m/TNRelay/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/tzer0m/TNRelay/actions/workflows/dependabot/dependabot-updates)
 
 A small console app that forwards [TrueNAS](https://www.truenas.com/) alerts as push notifications, since TrueNAS SCALE has no first-class way to relay alerts to a custom notification service.
 
