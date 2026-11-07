@@ -52,7 +52,7 @@ foreach (TrueNasSource source in config.TrueNas.Sources)
 
             string title = $"TNRelay: {source.Name} {alertLevel}";
             string body = alert.Formatted ?? alert.Text ?? string.Empty;
-            await tingClient.SendAsync(title, body);
+            await tingClient.SendAsync(title, body, $"https://{source.BaseUrl}");
 
             await alertStore.MarkForwardedAsync(source.Name, alert.Uuid);
             forwardedCount++;
