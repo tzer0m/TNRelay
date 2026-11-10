@@ -23,15 +23,15 @@ namespace TNRelay.Config
         public RelayConfig Relay { get; set; } = new();
 
         /// <summary>
-        /// Load config from appsettings.json
+        /// Load config from appsettings.json, user secrets (Development only) and environment variables
         /// </summary>
         /// <returns>Loaded config</returns>
         public static Config Load()
         {
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(AppContext.BaseDirectory)
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false)
-                .Build();
+            IConfigurationBuilder builder = new ConfigurationBuilder().SetBasePath(AppContext.BaseDirectory).AddJsonFile("appsettings.json", optional: false, reloadOnChange: false);
+            if (string.Equals(Environment.GetEnvironmentVariable("DOTNET_ENVIRONMENT"), "Development", StringComparison.OrdinalIgnoreCase))
+                builder.AddUserSecrets<Config>();
+            IConfigurationRoot configuration = builder.AddEnvironmentVariables().Build();
 
             Config config = new();
             configuration.Bind(config);

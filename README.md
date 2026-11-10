@@ -25,7 +25,7 @@ It exits with the number of source errors encountered, so it's straightforward t
 
 ## Configuration
 
-Configuration lives in `appsettings.json` (see `appsettingsGit.json` for the shape, values stripped):
+Non-secret settings live in `appsettings.json`. The TrueNAS API keys, Postgres connection string and Ting API key are left empty there and supplied by .NET user secrets locally (when `DOTNET_ENVIRONMENT=Development`) and environment variables in production:
 
 ```json
 {
@@ -40,7 +40,8 @@ Configuration lives in `appsettings.json` (see `appsettingsGit.json` for the sha
     "ConnectionString": ""
   },
   "Relay": {
-    "Endpoint": ""
+    "Endpoint": "",
+    "ApiKey": ""
   }
 }
 ```
