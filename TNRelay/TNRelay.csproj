@@ -14,7 +14,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.15" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="10.0.15" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.15" />
-    <PackageReference Include="Npgsql" Version="10.0.3" />
+    <PackageReference Include="Npgsql" Version="10.0.4" />
     <PackageReference Include="t0m.Ting" Version="1.1.0" />
   </ItemGroup>
 
